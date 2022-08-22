@@ -1,0 +1,7 @@
+{
+  "name": "sancipriano-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

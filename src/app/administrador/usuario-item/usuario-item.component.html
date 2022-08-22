@@ -1,0 +1,7 @@
+<ion-card>
+  <ion-item>
+    <ion-icon name="person-circle-sharp" slot="start"></ion-icon>
+    <ion-label>{{ usuario.nombres }} -> {{ usuario.rol?.nombre }}</ion-label>
+    <ion-button fill="outline" slot="end" (click)="buttonClick(usuario.id)">View</ion-button>
+  </ion-item>
+</ion-card>
