@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorPageModule)
   },
   {
-    path: 'registrar',
-    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
-  },
-  {
     path: 'reserva',
     loadChildren: () => import('./reserva/reserva.module').then( m => m.ReservaPageModule)
   },

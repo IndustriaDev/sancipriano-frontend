@@ -1,0 +1,6 @@
+<ion-text color="danger" *ngIf="turistas.length == 0">
+  <h4 >No hay registros almacenados de turistas</h4>
+</ion-text>
+<ion-list *ngIf="turistas.length > 0" >
+  <app-turista-item *ngFor="let turista of turistas" [turista]="turista"></app-turista-item>
+</ion-list>

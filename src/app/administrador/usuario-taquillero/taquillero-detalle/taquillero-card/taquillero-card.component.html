@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{taquillero.nombres}}</ion-card-subtitle>
+    <ion-card-title>{{taquillero.apellidos}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="./assets/img/avatar.svg" />
+      </ion-avatar>
+      <ion-label>
+        <h3> <strong>identificacion: </strong> {{taquillero.identificacion}}</h3>
+        <p><strong>correo: </strong>{{taquillero.correo}}</p>
+        <p><strong>telefono: </strong>{{taquillero.telefono}}</p>
+        <p><strong>rol: </strong>{{taquillero.rol?.nombre }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

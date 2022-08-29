@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TuristaPageRoutingModule } from './turista-routing.module';
 
 import { TuristaPage } from './turista.page';
+import { MenuTuristaComponent } from '../turista/menu-turista/menu-turista.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TuristaPage } from './turista.page';
     IonicModule,
     TuristaPageRoutingModule
   ],
-  declarations: [TuristaPage]
+  declarations: [TuristaPage, MenuTuristaComponent]
 })
 export class TuristaPageModule {}

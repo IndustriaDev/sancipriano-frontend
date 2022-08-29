@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/administrador"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestionar Taquillero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- fab placed to the (vertical) center and end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onCreateTaquillero()">
+    <ion-fab-button color="light" size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <app-taquillero-list></app-taquillero-list>
+</ion-content>

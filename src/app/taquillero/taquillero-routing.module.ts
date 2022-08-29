@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: TaquilleroPage
+  },
+  {
+    path: 'usuario-turista',
+    loadChildren: () => import('./usuario-turista/usuario-turista.module').then( m => m.UsuarioTuristaPageModule)
   }
 ];
 

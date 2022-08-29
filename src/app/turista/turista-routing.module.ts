@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: TuristaPage
+  },
+  {
+    path: 'reservar',
+    loadChildren: () => import('./reservar/reservar.module').then( m => m.ReservarPageModule)
+  },
+  {
+    path: 'registrarse',
+    loadChildren: () => import('./registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   }
 ];
 

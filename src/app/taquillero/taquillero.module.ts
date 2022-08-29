@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TaquilleroPageRoutingModule } from './taquillero-routing.module';
 
 import { TaquilleroPage } from './taquillero.page';
-import { TaquilleroItemComponent } from './taquillero-item/taquillero-item.component';
-import { TaquilleroListComponent } from './taquillero-list/taquillero-list.component';
+import { MenuTaquilleroComponent } from './menu-taquillero/menu-taquillero.component';
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import { TaquilleroListComponent } from './taquillero-list/taquillero-list.compo
     IonicModule,
     TaquilleroPageRoutingModule
   ],
-  declarations: [TaquilleroPage, TaquilleroListComponent, TaquilleroItemComponent]
+  declarations: [TaquilleroPage, MenuTaquilleroComponent]
 })
 export class TaquilleroPageModule {}

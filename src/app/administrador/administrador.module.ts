@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AdministradorPageRoutingModule } from './administrador-routing.module';
 
 import { AdministradorPage } from './administrador.page';
-import { UsuarioListComponent } from './usuario-list/usuario-list.component';
-import { UsuarioItemComponent } from './usuario-item/usuario-item.component';
+import { MenuAdministradorComponent } from './menu-administrador/menu-administrador.component';
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import { UsuarioItemComponent } from './usuario-item/usuario-item.component';
     IonicModule,
     AdministradorPageRoutingModule
   ],
-  declarations: [AdministradorPage, UsuarioListComponent, UsuarioItemComponent]
+  declarations: [AdministradorPage, MenuAdministradorComponent]
 })
 export class AdministradorPageModule {}

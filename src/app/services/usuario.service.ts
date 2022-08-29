@@ -17,17 +17,26 @@ export class UsuarioService {
   public usuarios: Usuario[] = [];
   public usuario: Usuario;
 
+  public turistas$ = new Subject<Usuario[]>();
+  public turista$ = new Subject<Usuario>();
+  public turistas: Usuario[] = [];
+  public turista: Usuario;
+
   constructor(private http: HttpClient) { }
 
   public all$(): Observable<Usuario[]> {
     return this.usuarios$.asObservable();
   }
 
+  public allTuristas$(): Observable<Usuario[]> {
+    return this.turistas$.asObservable();
+  }
+
   public getUsuario$(): Observable<Usuario> {
     return this.usuario$.asObservable();
   }
 
-  public getUsuario(id: number): Observable<any> {
+  public getUsuario(id: string): Observable<any> {
     return this.http.get<Usuario>(this.url + '/usuarios/' + id)
     .pipe(
       map((response: any) => {
@@ -46,11 +55,28 @@ export class UsuarioService {
           res.forEach((item: any) => {
             this.usuario = new Usuario();
             this.usuario.setUsuario(item);
-            if (this.usuario.rol.nombre != "administrador") {
+            if (this.usuario.rol.nombre == "taquillero") {
               this.usuarios.push(this.usuario);
             }
           });
           this.usuarios$.next(this.usuarios);
+        })
+      );
+  }
+
+  public allTuristas(): Observable<any> {
+    this.turistas = [];
+    return this.http.get<Usuario[]>(this.url + '/usuarios')
+      .pipe(
+        map((res: any[]) => {
+          res.forEach((item: any) => {
+            this.turista = new Usuario();
+            this.turista.setUsuario(item);
+            if (this.turista.rol.nombre == "turista") {
+              this.turistas.push(this.turista);
+            }
+          });
+          this.turistas$.next(this.turistas);
         })
       );
   }

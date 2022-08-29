@@ -1,0 +1,6 @@
+<ion-text color="danger" *ngIf="usuarios.length == 0">
+  <h4 >No hay registros almacenados de taquilleros</h4>
+</ion-text>
+<ion-list *ngIf="usuarios.length > 0" >
+  <app-taquillero-item *ngFor="let usuario of usuarios" [taquillero]="usuario"></app-taquillero-item>
+</ion-list>

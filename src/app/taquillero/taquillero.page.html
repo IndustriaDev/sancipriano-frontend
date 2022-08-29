@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>taquillero</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Taquillero</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <app-taquillero-list></app-taquillero-list>
+<ion-content class="ion-content">
+  <div id="container">
+    <app-menu-taquillero></app-menu-taquillero>
+  </div>
 </ion-content>
