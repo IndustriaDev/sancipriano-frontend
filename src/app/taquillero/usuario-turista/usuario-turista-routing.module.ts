@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./turista-nuevo/turista-nuevo.module').then( m => m.TuristaNuevoPageModule)
   },
   {
-    path: 'turista-detalle',
+    path: 'turista-detalle/:id',
     loadChildren: () => import('./turista-detalle/turista-detalle.module').then( m => m.TuristaDetallePageModule)
   },
 ];

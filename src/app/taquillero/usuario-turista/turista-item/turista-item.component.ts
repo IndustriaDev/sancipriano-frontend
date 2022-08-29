@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Usuario } from '../../../models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-turista-item',
@@ -10,10 +11,11 @@ export class TuristaItemComponent implements OnInit {
 
   @Input() turista: Usuario;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
   buttonClick(id: string) {
+    this.router.navigate(['/taquillero/usuario-turista/turista-detalle', id], {skipLocationChange: true});
   }
 }

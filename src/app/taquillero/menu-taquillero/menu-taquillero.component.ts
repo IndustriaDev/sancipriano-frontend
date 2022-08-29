@@ -17,7 +17,7 @@ export class MenuTaquilleroComponent implements OnInit {
   }
 
   onReserva() { 
-    this.router.navigate(['/taquillero/turista-detalle']);
+    this.router.navigate(['']);
   }
 
 }

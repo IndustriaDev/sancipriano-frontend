@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/turista/reservar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-form *ngIf="reserva" [reservaItem]="reserva" ></app-form>
+</ion-content>

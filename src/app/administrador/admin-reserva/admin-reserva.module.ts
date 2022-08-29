@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AdminReservaPageRoutingModule } from './admin-reserva-routing.module';
 
 import { AdminReservaPage } from './admin-reserva.page';
+import { ReservaListComponent } from './reserva-list/reserva-list.component';
+import { ReservaItemComponent } from './reserva-item/reserva-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { AdminReservaPage } from './admin-reserva.page';
     IonicModule,
     AdminReservaPageRoutingModule
   ],
-  declarations: [AdminReservaPage]
+  declarations: [AdminReservaPage, ReservaListComponent, ReservaItemComponent]
 })
 export class AdminReservaPageModule {}

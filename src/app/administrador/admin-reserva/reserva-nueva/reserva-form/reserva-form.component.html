@@ -1,0 +1,25 @@
+<div [formGroup]="reservaForm">
+  <div class="input-group">
+    <ion-item>
+      <ion-label><ion-icon name="person-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="fecha" type="date" formControlName="fecha"></ion-input>
+    </ion-item>
+    <div *ngIf="reservaForm.controls['fecha'].errors">
+      <ion-text color="danger" *ngIf="reservaForm.controls['fecha'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="add-outline"></ion-icon></ion-label>
+      <ion-input placeholder="cupos" type="number" formControlName="cupo"></ion-input>
+    </ion-item>
+    <div *ngIf="reservaForm.controls['cupo'].errors">
+      <ion-text color="danger" *ngIf="reservaForm.controls['cupo'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+  </div>
+  <section>
+    <ion-button expand="block" (click)="save()" [disabled]="reservaForm.invalid">Guardar</ion-button>
+  </section>
+</div>

@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Rol } from '../../../../models/rol';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../../../services/usuario.service';
+import { RolService } from '../../../../services/rol.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-taquillero-form',
@@ -15,8 +17,9 @@ export class TaquilleroFormComponent implements OnInit {
   public usuarioForm: FormGroup;
   public usuario: Usuario;
   public rol: Rol;
+  public rolSubscription = new Subscription();
 
-  constructor( private usuarioService: UsuarioService, private router: Router ) { }
+  constructor( private usuarioService: UsuarioService, private rolService: RolService, private router: Router ) { }
 
   ngOnInit() {
     this.usuarioForm = new FormGroup({
@@ -27,12 +30,14 @@ export class TaquilleroFormComponent implements OnInit {
       correo: new FormControl('', [Validators.required]),
       clave: new FormControl('', [Validators.required])
     });
+    this.rolSubscription = this.rolService.taquillero$().subscribe((roles: Rol[]) => {
+      this.rol = roles[0];
+    });
+    this.rolService.taquillero().subscribe((response: any) => {
+      });
   }
 
   save() {
-    this.rol = new Rol();
-    this.rol.id = "63018e14b84f373b50519c12";
-    this.rol.nombre = "taquillero";
     this.usuario = new Usuario();
     this.usuario.nombres = this.usuarioForm.get('nombres').value;
     this.usuario.apellidos = this.usuarioForm.get('apellidos').value;

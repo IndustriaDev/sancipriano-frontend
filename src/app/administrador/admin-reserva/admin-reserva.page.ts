@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-reserva',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminReservaPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onCreateReserva(){
-    console.log('Create Reserva');
+    this.router.navigate(['/administrador/admin-reserva/reserva-nueva']);
   }
 
 }

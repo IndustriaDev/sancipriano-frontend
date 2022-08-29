@@ -1,0 +1,7 @@
+<ion-card>
+  <ion-item>
+    <ion-icon name="person-circle-sharp" slot="start"></ion-icon>
+    <ion-label>{{ reserva.fecha | date}} - {{ reserva.cupo }}</ion-label>
+    <ion-button fill="outline" slot="end" (click)="buttonClick(reserva.id)">reservar</ion-button>
+  </ion-item>
+</ion-card>

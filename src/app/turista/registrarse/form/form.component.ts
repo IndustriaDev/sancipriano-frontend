@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Rol } from '../../../models/rol';
+import { Subscription } from 'rxjs';
+import { RolService } from '../../../services/rol.service';
 
 @Component({
   selector: 'app-form',
@@ -15,8 +17,9 @@ export class FormComponent implements OnInit {
   public usuarioForm: FormGroup;
   public usuario: Usuario;
   public rol: Rol;
+  public rolSubscription = new Subscription();
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private rolService: RolService, private router: Router) { }
 
   ngOnInit() {
     this.usuarioForm = new FormGroup({
@@ -27,11 +30,21 @@ export class FormComponent implements OnInit {
       correo: new FormControl('', [Validators.required]),
       clave: new FormControl('', [Validators.required])
     });
+
+    this.rolSubscription = this.rolService.turista$().subscribe((roles: Rol[]) => {
+      console.log(roles);
+      
+      this.rol = roles[0];
+    });
+    this.getTurista();
   }
+
+  getTurista() {
+    this.rolService.turista().subscribe(response => {
+    });
+  }
+
   save() {
-    this.rol = new Rol();
-    this.rol.id = "63018e14b84f373b50519c12";
-    this.rol.nombre = "taquillero";
     this.usuario = new Usuario();
     this.usuario.nombres = this.usuarioForm.get('nombres').value;
     this.usuario.apellidos = this.usuarioForm.get('apellidos').value;
@@ -41,7 +54,6 @@ export class FormComponent implements OnInit {
     this.usuario.clave = this.usuarioForm.get('clave').value;
     this.usuario.rol = this.rol;
     this.usuarioService.postUsuario(this.usuario).subscribe((response: any) => {
-      console.log(response);
       this.usuarioForm.reset();
       this.router.navigateByUrl('/home', {skipLocationChange:true});
     }, err => {

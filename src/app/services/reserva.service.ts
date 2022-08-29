@@ -26,7 +26,7 @@ export class ReservaService {
   public getReserva$(): Observable<Reserva> {
     return this.reserva$.asObservable();
   }
-  public getReserva(id: number): Observable<any> {
+  public getReserva(id: string): Observable<any> {
     return this.http.get<Reserva>(this.url + '/reservas/' + id)
     .pipe(
       map((response: any) => {
@@ -63,7 +63,7 @@ export class ReservaService {
     );
   }
 
-  public updateReserva(id: number, reserva: any) {
+  public updateReserva(id: string, reserva: any) {
     return this.http.put<Reserva>(this.url+'/reservas/'+id, reserva)
     .pipe(
       map((response: any) => {

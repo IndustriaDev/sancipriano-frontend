@@ -1,0 +1,6 @@
+<ion-text color="danger" *ngIf="reservas.length == 0">
+  <h4 >No hay registros almacenados de reserva</h4>
+</ion-text>
+<ion-list *ngIf="reservas.length > 0" >
+  <app-reserva-item *ngFor="let reserva of reservas" [reserva]="reserva"></app-reserva-item>
+</ion-list>

@@ -1,3 +1,61 @@
-<p>
-  turista-form works!
-</p>
+<div [formGroup]="turistaForm">
+  <div class="input-group">
+    <ion-item>
+      <ion-label><ion-icon name="person-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="nombres" type="text" formControlName="nombres"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['nombres'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['nombres'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="person-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="apellidos" type="text" formControlName="apellidos"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['apellidos'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['apellidos'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="id-card-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="idendificacion" type="text" formControlName="identificacion"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['identificacion'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['identificacion'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="phone-portrait-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="322 888 9544" type="text" formControlName="telefono"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['telefono'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['telefono'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="mail-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="correo" type="text" formControlName="correo"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['correo'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['correo'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="key-sharp"></ion-icon></ion-label>
+      <ion-input placeholder="*******" type="text" formControlName="clave"></ion-input>
+    </ion-item>
+    <div *ngIf="turistaForm.controls['clave'].errors">
+      <ion-text color="danger" *ngIf="turistaForm.controls['clave'].errors['required']">
+        <small>*</small>
+      </ion-text>
+    </div>
+  </div>
+  <section>
+    <ion-button expand="block" (click)="save()" [disabled]="turistaForm.invalid">Guardar</ion-button>
+  </section>
+</div>

@@ -4,6 +4,8 @@ import { Usuario } from '../../../../models/usuario';
 import { Rol } from '../../../../models/rol';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../../../services/usuario.service';
+import { RolService } from '../../../../services/rol.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-turista-form',
@@ -15,8 +17,9 @@ export class TuristaFormComponent implements OnInit {
   public turistaForm: FormGroup;
   public turista: Usuario;
   public rol: Rol;
+  public rolSubscription = new Subscription();
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private rolService: RolService, private router: Router) { }
 
   ngOnInit() {
     this.turistaForm = new FormGroup({
@@ -27,12 +30,15 @@ export class TuristaFormComponent implements OnInit {
       correo: new FormControl('', [Validators.required]),
       clave: new FormControl('', [Validators.required])
     });
+
+    this.rolSubscription = this.rolService.turista$().subscribe((roles: Rol[]) => {
+      this.rol = roles[0];
+    });
+    this.rolService.turista().subscribe((response: any) => {
+    });
   }
 
   save() {
-    this.rol = new Rol();
-    this.rol.id = "6303d68654d33324100869a5";
-    this.rol.nombre = "turista";
     this.turista = new Usuario();
     this.turista.nombres = this.turistaForm.get('nombres').value;
     this.turista.apellidos = this.turistaForm.get('apellidos').value;

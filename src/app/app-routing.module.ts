@@ -22,15 +22,7 @@ const routes: Routes = [
   {
     path: 'administrador',
     loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorPageModule)
-  },
-  {
-    path: 'reserva',
-    loadChildren: () => import('./reserva/reserva.module').then( m => m.ReservaPageModule)
-  },
-  {
-    path: 'usuario-detalle/:id',
-    loadChildren: () => import('./usuario-detalle/usuario-detalle.module').then( m => m.UsuarioDetallePageModule)
-  },
+  }
 ];
 
 @NgModule({
